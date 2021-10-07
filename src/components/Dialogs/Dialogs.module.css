@@ -1,0 +1,46 @@
+.item {
+    background-color: midnightblue;
+}
+
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+.messItem {
+    color: gold;
+}
+
+.dialogLeft {
+    margin-left: 300px;
+}
+
+.dialogRight {
+}
+
+.img {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+
+.dialogsItems {
+    padding: 10px;
+    color: white;
+}
+
+.dialogsItems .active {
+    color: gold;
+}
+
+.dialogsItems .dialog {
+
+}
+
+.messages {
+    padding: 10px;
+}
+
+.messages .message{
+    color: white;
+}
