@@ -5,7 +5,7 @@ import React, {useState} from 'react';
 // let [a, setA] = arr;
 
 const ProfileStatusWithHooks = (props) => {
-
+    
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status);
 
