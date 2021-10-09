@@ -1,6 +1,6 @@
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
-import React from "react";
+import React, {Component} from "react";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {Textarea} from "../../Common/FormsControls/FormsControls";
@@ -23,25 +23,34 @@ const AddNewPostForm = (props) => {
 
 const AddNewPostFormRedux = reduxForm({form: "AddNewPostForm"})(AddNewPostForm);
 
-const MyPosts = (props) => {
-    let postsElements =
-        props.posts.map(el => <Post message={el.message} likesCount={el.likesCount} key={el.id}/>);
+class MyPosts extends Component {
 
-    let onSendPost = (PostData) => {
-        props.addPost(PostData.newPostText);
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps != this.props || nextState != this.state;
     }
 
-    return (
-        <div className={s.postsBlock}>
-            <h3>My posts</h3>
-            <div>
-                <AddNewPostFormRedux onSubmit={onSendPost}/>
+    render() {
+        console.log('render MyPosts')
+        console.log(this.props)
+        let postsElements =
+           this.props.posts.map(el => <Post message={el.message} likesCount={el.likesCount} key={el.id}/>);
+
+        let onSendPost = (PostData) => {
+            this.props.addPost(PostData.newPostText);
+        }
+
+        return (
+            <div className={s.postsBlock}>
+                <h3>My posts</h3>
+                <div>
+                    <AddNewPostFormRedux onSubmit={onSendPost}/>
+                </div>
+                <div className={s.posts}>
+                    {postsElements}
+                </div>
             </div>
-            <div className={s.posts}>
-                {postsElements}
-            </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default MyPosts
