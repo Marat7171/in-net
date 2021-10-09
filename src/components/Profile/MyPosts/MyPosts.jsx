@@ -1,6 +1,6 @@
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
-import React, {Component} from "react";
+import React, {PureComponent} from "react";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {Textarea} from "../../Common/FormsControls/FormsControls";
@@ -23,11 +23,17 @@ const AddNewPostForm = (props) => {
 
 const AddNewPostFormRedux = reduxForm({form: "AddNewPostForm"})(AddNewPostForm);
 
-class MyPosts extends Component {
+class MyPosts extends PureComponent {
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return nextProps != this.props || nextState != this.state;
-    }
+    // componentDidMount() {
+    //     setTimeout(() => {
+    //         this.setState({a: 12});
+    //     }, 3000)
+    // }
+
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     return nextProps != this.props || nextState != this.state;
+    // }
 
     render() {
         console.log('render MyPosts')
