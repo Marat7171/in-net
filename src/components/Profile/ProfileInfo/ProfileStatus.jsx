@@ -1,4 +1,3 @@
-import s from './ProfileInfo.module.css';
 import React from 'react';
 
 
@@ -27,12 +26,8 @@ class ProfileStatus extends React.Component {
         });
 
     }
-    componentDidMount() {
-        console.log("Component did mount")
-    }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log("Component did Update")
         if (prevProps.status !== this.props.status) {
             this.setState({
                 status: this.props.status
@@ -42,7 +37,6 @@ class ProfileStatus extends React.Component {
     }
 
     render() {
-        console.log("render");
         return (
             <div>
                 {!this.state.editMode &&
