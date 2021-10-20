@@ -58,6 +58,8 @@ let AppContainer = compose(
     withRouter,
     connect(mapStateToProps, {initializeApp}))(App);
 
+// <HashRouter basename={process.env.PUBLIC_URL}></HashRouter>
+
 const MainJSApp = (props) => {
     return <BrowserRouter>
         <Provider store={store}>
